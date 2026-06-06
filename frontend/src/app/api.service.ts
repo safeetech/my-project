@@ -10,11 +10,15 @@ import { isPlatformBrowser } from '@angular/common';
 export class ApiService {
   
   constructor(private http: HttpClient, @Inject('platformId') private platformId: Object){}
-
   getUsers(): Observable<User[]>{
-    if (isPlatformBrowser(this.platformId)) {
-      return of([]); // Return an empty array if running in the browser
-    }
-    return this.http.get<User[]>('/api/users');
+       return of([]); // Return an empty array if running in the browser
   }
 }
+
+//   getUsers(): Observable<User[]>{
+//     if (isPlatformBrowser(this.platformId)) {
+//       return of([]); // Return an empty array if running in the browser
+//     }
+//     return this.http.get<User[]>('/api/users');
+//   }
+// }

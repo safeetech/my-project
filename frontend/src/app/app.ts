@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, signal } from '@angular/core';
 import { ApiService } from './api.service';
 import { User } from './models/User.model';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { log } from 'console';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { log } from 'console';
 })
 export class App {
 
-  constructor(private api: ApiService, private cd: ChangeDetectorRef){}
+  constructor(private api: ApiService, private cd: ChangeDetectorRef,
+    @Inject('platformId') private platformId: Object    
+  ){}
   
   users: any[] = [];
 ngOnInit() {
@@ -25,6 +28,9 @@ ngOnInit() {
   } 
   
   fetchUsers() {
+    if (isPlatformBrowser(this.platformId)) {
+      return; // Return early if running in the browser
+    }
     console.log('fetchUsers is called');
     this.api.getUsers().subscribe({ 
       next: data => {
