@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-service:5432/appdb
+    driver-class-name: org.postgresql.Driver
+    username: appuser
+    password: pass
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect

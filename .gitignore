@@ -1,0 +1,22 @@
+# Build artifacts
+target/
+*.jar
+*.war
+*.ear
+node_modules/
+dist/
+.angular/
+
+# Secrets
+*.txt
+.github/workflows/tokens.txt
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-service:5432/appdb
+  SPRING_DATASOURCE_USERNAME: appuser
+  SPRING_PROFILES_ACTIVE: prod
+
+
+
+
+
+  
