@@ -1,4 +1,4 @@
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY backendtarget/*.jar app.jar
+COPY backend/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
