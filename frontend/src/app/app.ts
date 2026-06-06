@@ -15,7 +15,6 @@ import { of } from 'rxjs';
 export class App {
 
   constructor(private api: ApiService, private cd: ChangeDetectorRef,
-    @Inject('platformId') private platformId: Object    
   ){}
   
   users: any[] = [];
@@ -28,9 +27,6 @@ ngOnInit() {
   } 
   
   fetchUsers() {
-    if (isPlatformBrowser(this.platformId)) {
-      return; // Return early if running in the browser
-    }
     console.log('fetchUsers is called');
     this.api.getUsers().subscribe({ 
       next: data => {

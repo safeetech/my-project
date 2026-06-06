@@ -9,7 +9,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class ApiService {
   
-  constructor(private http: HttpClient, @Inject('platformId') private platformId: Object){}
+  constructor(private http: HttpClient )
+  {}
+  
   getUsers(): Observable<User[]>{
        return of([]); // Return an empty array if running in the browser
   }
